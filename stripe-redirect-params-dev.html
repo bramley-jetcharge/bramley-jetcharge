@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <script>
+        window.onload = function() {
+            // Get the current URL with query params originally from Stripe
+            const currentUrl = window.location.href;
+            // Replace the scheme (http or https) with app deeplink domain
+            const newUrl = currentUrl.replace(/^https?:/, 'billing.au.com.jetcharge.connect.dev:');
+            // Redirect to the new URL
+            window.location.href = newUrl;
+        };
+    </script>
+</head>
+<body>
+    <p>If you are not redirected, <a id="redirectLink" href="#">click here</a>.</p>
+    <script>
+        // Set the link's href to the new URL with query params in case the redirect doesn't work
+        const currentUrl = window.location.href;
+        // Replace the scheme (http or https) with app deeplink domain
+        const newUrl = currentUrl.replace(/^https?:/, 'billing.au.com.jetcharge.connect.dev:');
+        document.getElementById("redirectLink").href = newUrl;
+    </script>
+</body>
+</html>
